@@ -1,11 +1,11 @@
-# Sử dụng JDK 17 (hoặc phiên bản phù hợp với dự án của bạn)
-FROM openjdk:17-jdk-slim
+# Sử dụng Image ổn định hơn để tránh lỗi build
+FROM eclipse-temurin:17-jdk-alpine
 
-# Copy file jar vào trong container
+# Copy file jar mà bạn vừa nén lại vào container
 COPY ApiFinal.jar app.jar
 
-# Thông báo port mà ứng dụng sẽ chạy (thường là 8080)
+# Thông báo port mặc định
 EXPOSE 8080
 
-# Lệnh để chạy ứng dụng
+# Chạy ứng dụng
 ENTRYPOINT ["java", "-jar", "/app.jar"]
